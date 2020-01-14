@@ -1,0 +1,9 @@
+C:\Users\murilo.melo\Desktop\Murilo\2020\LeilaoOnline\LeilaoOnline.Core\bin\Debug\netcoreapp2.2\LeilaoOnline.Core.deps.json
+C:\Users\murilo.melo\Desktop\Murilo\2020\LeilaoOnline\LeilaoOnline.Core\bin\Debug\netcoreapp2.2\LeilaoOnline.Core.dll
+C:\Users\murilo.melo\Desktop\Murilo\2020\LeilaoOnline\LeilaoOnline.Core\bin\Debug\netcoreapp2.2\LeilaoOnline.Core.pdb
+C:\Users\murilo.melo\Desktop\Murilo\2020\LeilaoOnline\LeilaoOnline.Core\obj\Debug\netcoreapp2.2\LeilaoOnline.Core.csprojAssemblyReference.cache
+C:\Users\murilo.melo\Desktop\Murilo\2020\LeilaoOnline\LeilaoOnline.Core\obj\Debug\netcoreapp2.2\LeilaoOnline.Core.csproj.CoreCompileInputs.cache
+C:\Users\murilo.melo\Desktop\Murilo\2020\LeilaoOnline\LeilaoOnline.Core\obj\Debug\netcoreapp2.2\LeilaoOnline.Core.AssemblyInfoInputs.cache
+C:\Users\murilo.melo\Desktop\Murilo\2020\LeilaoOnline\LeilaoOnline.Core\obj\Debug\netcoreapp2.2\LeilaoOnline.Core.AssemblyInfo.cs
+C:\Users\murilo.melo\Desktop\Murilo\2020\LeilaoOnline\LeilaoOnline.Core\obj\Debug\netcoreapp2.2\LeilaoOnline.Core.dll
+C:\Users\murilo.melo\Desktop\Murilo\2020\LeilaoOnline\LeilaoOnline.Core\obj\Debug\netcoreapp2.2\LeilaoOnline.Core.pdb
