@@ -5,8 +5,14 @@ using System.Text;
 
 namespace LeilaoOnline.Core
 {
+    public enum EstadoLeilao
+    {
+        LeilaoEmAndamento,
+        LeilaoFinalizado,
+    }
    public class Leilao
     {
+
         private IList<Lance> _lances;
         public IEnumerable<Lance> Lances => _lances;
         public string Peca { get; }

@@ -5859,7 +5859,7 @@
   },
   "packageFolders": {
     "C:\\Users\\murilo.melo\\.nuget\\packages\\": {},
-    "C:\\ProgramData\\Xamarin\\NuGet\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -5872,7 +5872,7 @@
       "outputPath": "C:\\Users\\murilo.melo\\Desktop\\Murilo\\2020\\LeilaoOnline\\LeilaoOnline.tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\ProgramData\\Xamarin\\NuGet\\",
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
