@@ -9,21 +9,29 @@ namespace LeilaoOnline.tests
 {
     public class LeilaoRecebeOferta
     {
-        [Fact]
-        public void NaoPermiteNovosLancesDadoLeilaoFinalizado()
+        [Theory]
+        [InlineData(4, new double [] {1000,1200,1400,1300})]
+        [InlineData(2, new double[] { 800,900})]
+        public void NaoPermiteNovosLancesDadoLeilaoFinalizado( int QuantidadeEsperada, double [] ofertas)
         {
                 var Leilao = new Leilao("Van gohh");
             var Fulano = new Interessado("Fulano", Leilao);
-            Leilao.RecebeLance(Fulano, 900);
-            Leilao.RecebeLance(Fulano, 1000);
+
+            Leilao.IniciaPregao();
+            foreach(var valor in ofertas)
+            {
+                Leilao.RecebeLance(Fulano, valor);
+
+            }
+
             Leilao.TerminaPregao();
 
+            Leilao.RecebeLance(Fulano, 1000);
+            
 
             Leilao.RecebeLance(Fulano, 1010);
-            var valorEsperado = 2;
-                var valorObtido = Leilao.Lances.Count();
-
-                Assert.Equal(valorObtido, valorEsperado);
+                var quantidadeObtida = Leilao.Lances.Count();
+                Assert.Equal(QuantidadeEsperada, quantidadeObtida);
 
             }
 

@@ -23,6 +23,7 @@ namespace LeilaoOnline.tests
             var Leilao = new Leilao("Van Gogh");
             var Artur = new Interessado("Artur", Leilao);
 
+            Leilao.IniciaPregao();
             foreach (var valor in ofertas)
             {
                 //parametrizando os valores de entrada
