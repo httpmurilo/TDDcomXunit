@@ -11,8 +11,8 @@ namespace LeilaoOnline.tests
 
         [Theory]
         //dados de entrada, agrupando um grupo de valores, array com 4 elementos 
-        [InlineData(1100, new double[] { 800, 900, 1000, 1100 })]
-        [InlineData(1000, new double[] { 800, 900, 1000, 990 })]
+        [InlineData(800, new double[] { 800, 900, 1000, 1100 })]
+        [InlineData(800, new double[] { 800, 900, 1000, 990 })]
         [InlineData(800, new double[] { 800 })]
         public void RetornaMaiorValorDadoLeilaoComPeloMenosUmLance(
             double valorEsperado,
