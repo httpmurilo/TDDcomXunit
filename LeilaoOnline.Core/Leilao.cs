@@ -11,7 +11,7 @@ namespace LeilaoOnline.Core
         LeilaoFinalizado,
         LeilaoAntesDoPregao
     }
-   public class Leilao
+    public class Leilao
     {
         private Interessado _ultimoCliente;
         private IList<Lance> _lances;
@@ -25,18 +25,17 @@ namespace LeilaoOnline.Core
             _lances = new List<Lance>();
             Estado = EstadoLeilao.LeilaoAntesDoPregao;
         }
-
+        private bool NovoLanceEhAceito(Interessado cliente, double valor)
+        {
+            return (Estado == EstadoLeilao.LeilaoEmAndamento)
+                && (cliente != _ultimoCliente);
+        }
         public void RecebeLance(Interessado cliente, double valor)
         {
-            if (Estado == EstadoLeilao.LeilaoEmAndamento)
+            if (NovoLanceEhAceito(cliente, valor))
             {
-                if (cliente != _ultimoCliente)
-                {
-                    _lances.Add(new Lance(cliente, valor));
-                    _ultimoCliente = cliente;
-                }
-               
-
+                _lances.Add(new Lance(cliente, valor));
+                _ultimoCliente = cliente;
             }
         }
 
@@ -47,8 +46,12 @@ namespace LeilaoOnline.Core
 
         public void TerminaPregao()
         {
+            if (Estado != EstadoLeilao.LeilaoEmAndamento)
+            {
+                throw new System.InvalidOperationException("Não é possivél terminar o pregão sem que ele tenha começado.Para isso utilize o método IniciaPregao()");
+            }
             Ganhador = Lances
-                .DefaultIfEmpty(new Lance(null,0))
+                .DefaultIfEmpty(new Lance(null, 0))
                 .OrderBy(l => l.Valor)
                 .LastOrDefault();
             Estado = EstadoLeilao.LeilaoFinalizado;
@@ -56,4 +59,3 @@ namespace LeilaoOnline.Core
     }
 }
 
-    

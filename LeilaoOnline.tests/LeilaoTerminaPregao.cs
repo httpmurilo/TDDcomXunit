@@ -11,8 +11,8 @@ namespace LeilaoOnline.tests
 
         [Theory]
         //dados de entrada, agrupando um grupo de valores, array com 4 elementos 
-        [InlineData(800, new double[] { 800, 900, 1000, 1100 })]
-        [InlineData(800, new double[] { 800, 900, 1000, 990 })]
+        [InlineData(1100, new double[] { 800, 900, 1000, 1100 })]
+        [InlineData(1000, new double[] { 800, 900, 1000, 990 })]
         [InlineData(800, new double[] { 800 })]
         public void RetornaMaiorValorDadoLeilaoComPeloMenosUmLance(
             double valorEsperado,
@@ -22,17 +22,37 @@ namespace LeilaoOnline.tests
             //Arranje - cenário
             var Leilao = new Leilao("Van Gogh");
             var Artur = new Interessado("Artur", Leilao);
+            var maria = new Interessado("Maria", Leilao);
 
             Leilao.IniciaPregao();
-            foreach (var valor in ofertas)
+            for (int i = 0; i < ofertas.Length; i++)
             {
-                //parametrizando os valores de entrada
-                Leilao.RecebeLance(Artur, valor);
+                var valor = ofertas[i];
+                if ((i % 2) == 0)
+                {
+                    Leilao.RecebeLance(Artur, valor);
+                }
+                else
+                {
+                    Leilao.RecebeLance(maria, valor);
+                }
             }
             Leilao.TerminaPregao();
             var valorObtido = Leilao.Ganhador.Valor;
             Assert.Equal(valorEsperado, valorObtido);
 
+        }
+        [Fact]
+        public void LanceInvalidOperationExceptionDadoPregaoNaoIniciado()
+        {
+            //testando a exceção
+            var Leilao = new Leilao("Van gohh");
+          var excecaoObtida =   Assert.Throws<System.InvalidOperationException>(
+                () => //passando o teste da exceção como delegate
+                Leilao.TerminaPregao()
+                );
+            var msgEsperada = "Não é possivél terminar o pregão sem que ele tenha começado.Para isso utilize o método IniciaPregao()";
+            Assert.Equal(msgEsperada, excecaoObtida.Message);
         }
 
 
@@ -40,6 +60,7 @@ namespace LeilaoOnline.tests
         public void RetornaZeroDadoLeilaoSemLances()
         {
             var Leilao = new Leilao("Van gohh");
+            Leilao.IniciaPregao();
             Leilao.TerminaPregao();
 
             var valorEsperado = 0;
@@ -48,6 +69,7 @@ namespace LeilaoOnline.tests
             Assert.Equal(valorObtido, valorEsperado);
 
         }
+
 
     }
 }
